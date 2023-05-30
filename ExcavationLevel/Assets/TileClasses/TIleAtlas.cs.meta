@@ -3,7 +3,20 @@ guid: 0cf540aa09d2bae4fabf8e0c7a8d7d32
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - stone: {fileID: 11400000, guid: db16c2fb0cb7d4348a8466458536cc6e, type: 2}
+  - dirt: {fileID: 11400000, guid: 14a402897833c8a4688154fb1b7889a8, type: 2}
+  - grass: {fileID: 11400000, guid: 14a402897833c8a4688154fb1b7889a8, type: 2}
+  - ruins: {fileID: 11400000, guid: 07bb7493eb3e3f34d907d627287f60c8, type: 2}
+  - brown: {fileID: 11400000, guid: b31a09e3a7e724942b3b6f53afdf8fc1, type: 2}
+  - sand: {fileID: 11400000, guid: a58ad507efee269459ca060141014dc0, type: 2}
+  - orange: {fileID: 11400000, guid: f5fbd71916b064344be10d8a9fa74a99, type: 2}
+  - graveldirt: {fileID: 11400000, guid: 2ad4ee304f607ba428dc9c5556aea668, type: 2}
+  - lava: {fileID: 11400000, guid: 71c613854c2fcd74ea5f3819cf71b024, type: 2}
+  - redstone: {fileID: 11400000, guid: 6a09cd5bd9e27c143b9a9a3091e70694, type: 2}
+  - redsand: {fileID: 11400000, guid: f5f7738b886d254428132ec503edf066, type: 2}
+  - cointreasure: {fileID: 11400000, guid: d4ab47aba9fdd91408b7e10cc50028a9, type: 2}
+  - goldtreasure: {fileID: 11400000, guid: f296e1a749f905643b9f6ee865500e26, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

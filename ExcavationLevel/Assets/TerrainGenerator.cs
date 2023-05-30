@@ -6,7 +6,8 @@ public class TerrainGenerator : MonoBehaviour
 {
     public int worldSize = 100;
     public int chunkSize = 16;
-    public int dirtLayerHeight = 5;
+    public int dirtLayerHeight = 31;
+    //eigentlich 5, keine artefakte deswegen
     public float surfaceValue = 0.2f;
     public float caveFreq = 0.05f;
     public float terrainFreq = 0.05f;
@@ -89,6 +90,7 @@ public class TerrainGenerator : MonoBehaviour
         for (int x = 0; x < worldSize; x++)
         {
             float height = Mathf.PerlinNoise((x + seed) * terrainFreq, seed * terrainFreq) * heightMultiplier + heightAddition;
+            Debug.Log(height);
             for (int y = 0; y < height; y++)
             {
                 Sprite tileSprite;
@@ -104,16 +106,36 @@ public class TerrainGenerator : MonoBehaviour
                     }
                     else
                     {
-                        tileSprite = TileAtlas.stone.tileSprite;
+                        tileSprite = TileAtlas.redstone.tileSprite;
                     }
                 }
-                else if (y < height - 1)
-                    {
+                else if (y < height - 23)
+                {
+                    tileSprite = TileAtlas.redsand.tileSprite;
+                }
+                else if (y < height - 17)
+                {
+                    tileSprite = TileAtlas.brown.tileSprite;
+                }
+                else if (y < height - 15)
+                {
+                    tileSprite = TileAtlas.lava.tileSprite;
+                }
+                else if (y < height - 10)
+                {
+                    tileSprite = TileAtlas.graveldirt.tileSprite;
+                }
+                else if (y < height - 5)
+                {
                     tileSprite = TileAtlas.dirt.tileSprite;
+                }
+                else if (y < height - 2)
+                    {
+                    tileSprite = TileAtlas.orange.tileSprite;
                 }
                 else
                 {
-                    tileSprite = TileAtlas.grass.tileSprite;
+                    tileSprite = TileAtlas.sand.tileSprite;
                 }
             if (generateCaves == true) { 
                 if (cavenoiseTexture.GetPixel(x, y).r > surfaceValue)

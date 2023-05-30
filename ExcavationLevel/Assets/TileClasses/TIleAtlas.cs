@@ -10,6 +10,13 @@ public class TIleAtlas : ScriptableObject
     public TileClass dirt;
     public TileClass grass;
     public TileClass ruins;
+    public TileClass brown;
+    public TileClass sand;
+    public TileClass orange;
+    public TileClass graveldirt;
+    public TileClass lava;
+    public TileClass redstone;
+    public TileClass redsand;
     public TileClass cointreasure;
     public TileClass goldtreasure;
 }
