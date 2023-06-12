@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8219053390207921149}
   - component: {fileID: 8219053390207921150}
   - component: {fileID: 4829833197819641642}
+  - component: {fileID: 1308977858}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -102,7 +103,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 8219053390207921151}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a3ac796c90c321c45bf0943437838274, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -124,12 +125,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &8219053390207921150
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -139,7 +140,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 8219053390207921151}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a3ac796c90c321c45bf0943437838274, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -166,6 +167,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1308977858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8219053390207921151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d24b07cb253144493e6e661add9cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 10
+  horizontal: 0
+  onGround: 1
 --- !u!1 &8219053390285476631
 GameObject:
   m_ObjectHideFlags: 0

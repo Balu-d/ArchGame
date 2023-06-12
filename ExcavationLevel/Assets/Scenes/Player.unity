@@ -256,26 +256,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1308977852 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8219053390207921151, guid: 272fb5e7106dca24f98e8d7aa2e8c802, type: 3}
+--- !u!4 &1308977864 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8219053390207921026, guid: 272fb5e7106dca24f98e8d7aa2e8c802, type: 3}
   m_PrefabInstance: {fileID: 8219053391516877123}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1308977858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308977852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7d24b07cb253144493e6e661add9cac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 10
-  onGround: 1
 --- !u!1 &1797937223
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,6 +272,7 @@ GameObject:
   - component: {fileID: 1797937226}
   - component: {fileID: 1797937225}
   - component: {fileID: 1797937224}
+  - component: {fileID: 1797937227}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -329,7 +315,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -360,6 +346,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1797937227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797937223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c1c137b00744c47ad994f031e19467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  smoothTime: 0.5
+  playerTransform: {fileID: 1308977864}
 --- !u!1001 &8219053391516877123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -411,22 +412,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8219053390207921148, guid: 272fb5e7106dca24f98e8d7aa2e8c802, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: a3ac796c90c321c45bf0943437838274, type: 2}
-    - target: {fileID: 8219053390207921149, guid: 272fb5e7106dca24f98e8d7aa2e8c802, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219053390207921149, guid: 272fb5e7106dca24f98e8d7aa2e8c802, type: 3}
-      propertyPath: m_GravityScale
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219053390207921150, guid: 272fb5e7106dca24f98e8d7aa2e8c802, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: a3ac796c90c321c45bf0943437838274, type: 2}
     - target: {fileID: 8219053390207921151, guid: 272fb5e7106dca24f98e8d7aa2e8c802, type: 3}
       propertyPath: m_Name
       value: Player
