@@ -8,9 +8,11 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public float horizontal;
     public bool onGround;
+    public bool hit;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    public TerrainGenerator terrainGenerator;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,14 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
 
         Vector2 movement = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+        hit = Input.GetMouseButton(0);
+        if (hit)
+        {
+            Vector2 pos;
+            pos.x = Mathf.RoundToInt(rb.position.x - 0.5f);
+            pos.y = Mathf.RoundToInt(rb.position.y);
+            terrainGenerator.RemoveTile((int)pos.x, ((int)pos.y) - 2);
+        }
 
         if (horizontal > 0)
             transform.localScale = new Vector3(-1, 1, 1);

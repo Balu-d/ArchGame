@@ -311,6 +311,7 @@ MonoBehaviour:
   heightAddition: 25
   generateCaves: 1
   worldTiles: []
+  worldTileObjects: []
   worldChunks: []
   ruinsChance: 0
   cointreasureRarity: 0.1
@@ -441,6 +442,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1308977858, guid: 272fb5e7106dca24f98e8d7aa2e8c802, type: 3}
+      propertyPath: terrainGenerator
+      value: 
+      objectReference: {fileID: 1651393000}
     - target: {fileID: 8219053390207921026, guid: 272fb5e7106dca24f98e8d7aa2e8c802, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -484,10 +489,6 @@ PrefabInstance:
     - target: {fileID: 8219053390207921026, guid: 272fb5e7106dca24f98e8d7aa2e8c802, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219053390207921149, guid: 272fb5e7106dca24f98e8d7aa2e8c802, type: 3}
-      propertyPath: m_GravityScale
-      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 8219053390207921151, guid: 272fb5e7106dca24f98e8d7aa2e8c802, type: 3}
       propertyPath: m_Name

@@ -23,6 +23,7 @@ public class TerrainGenerator : MonoBehaviour
     public int heightAddition = 25;
     public bool generateCaves = true;
     public List<Vector2> worldTiles = new List<Vector2>();
+    public List<GameObject> worldTileObjects = new List<GameObject>();
     public GameObject[] worldChunks;
     public int ruinsChance = 10;
 
@@ -195,6 +196,16 @@ public class TerrainGenerator : MonoBehaviour
         placeTile(TileAtlas.ruins.tileSprite, x+1, y);
     }
 
+    public void RemoveTile (int x, int y)
+    {
+        if (worldTiles.Contains(new Vector2Int(x, y)) && x>= 0 && x<= worldSize && y>= 0 && y<= worldSize)
+        {
+            Destroy(worldTileObjects[worldTiles.IndexOf(new Vector2(x, y))]);
+        }
+    }
+
+
+
     public void placeTile(Sprite tileSprite, int x, int y)
     {
         GameObject newTile = new GameObject(name = "Tile");
@@ -211,6 +222,7 @@ public class TerrainGenerator : MonoBehaviour
         newTile.transform.position = new Vector2(x + 0.5f, y + 0.5f);
 
         worldTiles.Add(newTile.transform.position - Vector3.one * 0.5f);
+        worldTileObjects.Add(newTile);
     }
 
 }
