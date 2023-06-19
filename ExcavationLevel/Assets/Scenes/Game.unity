@@ -310,8 +310,10 @@ MonoBehaviour:
   heightMultiplier: 25
   heightAddition: 25
   generateCaves: 1
+  isArtefact: 0
   worldTiles: []
   worldTileObjects: []
+  worldArtefacts: []
   worldChunks: []
   ruinsChance: 0
   cointreasureRarity: 0.1
@@ -442,6 +444,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1308977858, guid: 272fb5e7106dca24f98e8d7aa2e8c802, type: 3}
+      propertyPath: dista
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1308977858, guid: 272fb5e7106dca24f98e8d7aa2e8c802, type: 3}
       propertyPath: terrainGenerator
       value: 

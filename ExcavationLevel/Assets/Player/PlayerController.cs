@@ -7,8 +7,10 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
     public float horizontal;
+    public int dista = 5;
     public bool onGround;
     public bool hit;
+    int na = 1;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
@@ -62,6 +64,27 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        for (int i = 0; i < terrainGenerator.worldArtefacts.Count; i++)
+        {
+            if (terrainGenerator.worldArtefacts[i] != null)
+            {
+                int DistancefromArtefact = (int)Vector2.Distance(rb.position, terrainGenerator.worldArtefacts[i].transform.position);
+                if (na == 1)
+                {
+                    Debug.Log(DistancefromArtefact);
+                    Debug.Log(dista);
+                    na = 2;
+                }
+                if (DistancefromArtefact < dista)
+                {
+                    Color spritecolor = terrainGenerator.worldArtefacts[i].GetComponent<SpriteRenderer>().material.color;
+                    spritecolor.a = 1f;
+                    //spritecolor.a = (float) (10/DistancefromArtefact);
+                    terrainGenerator.worldArtefacts[i].GetComponent<SpriteRenderer>().material.color = spritecolor;
+                }
+            }
+        }
+           
         animator.SetFloat("horizontal", horizontal);
     }
 }

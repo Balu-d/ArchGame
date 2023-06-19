@@ -22,8 +22,10 @@ public class TerrainGenerator : MonoBehaviour
     public float heightMultiplier = 25f;
     public int heightAddition = 25;
     public bool generateCaves = true;
+    public bool isArtefact = false;
     public List<Vector2> worldTiles = new List<Vector2>();
     public List<GameObject> worldTileObjects = new List<GameObject>();
+    public List<GameObject> worldArtefacts = new List<GameObject>();
     public GameObject[] worldChunks;
     public int ruinsChance = 10;
 
@@ -94,10 +96,13 @@ public class TerrainGenerator : MonoBehaviour
             Debug.Log(height);
             for (int y = 0; y < height; y++)
             {
+                isArtefact = false;
                 Sprite tileSprite;
                 if (y < height - dirtLayerHeight)
                 {
-                    if (coinSpread.GetPixel(x, y).r > 0.5f)
+                    tileSprite = TileAtlas.redstone.tileSprite;
+                    tileSprite = GenerateArtefacts(x, y, tileSprite, TileAtlas.redstone.tileSprite);
+                    /*if (coinSpread.GetPixel(x, y).r > 0.5f)
                     {
                         tileSprite = TileAtlas.cointreasure.tileSprite;
                     }
@@ -108,31 +113,37 @@ public class TerrainGenerator : MonoBehaviour
                     else
                     {
                         tileSprite = TileAtlas.redstone.tileSprite;
-                    }
+                    }*/
                 }
                 else if (y < height - 23)
                 {
                     tileSprite = TileAtlas.redsand.tileSprite;
+                    tileSprite = GenerateArtefacts(x, y, tileSprite, TileAtlas.redsand.tileSprite);
                 }
                 else if (y < height - 17)
                 {
                     tileSprite = TileAtlas.brown.tileSprite;
+                    tileSprite = GenerateArtefacts(x, y, tileSprite, TileAtlas.brown.tileSprite);
                 }
                 else if (y < height - 15)
                 {
                     tileSprite = TileAtlas.lava.tileSprite;
+                    tileSprite = GenerateArtefacts(x, y, tileSprite, TileAtlas.lava.tileSprite);
                 }
                 else if (y < height - 10)
                 {
                     tileSprite = TileAtlas.graveldirt.tileSprite;
+                    tileSprite = GenerateArtefacts(x, y, tileSprite, TileAtlas.graveldirt.tileSprite);
                 }
                 else if (y < height - 5)
                 {
                     tileSprite = TileAtlas.dirt.tileSprite;
+                    tileSprite = GenerateArtefacts(x, y, tileSprite, TileAtlas.dirt.tileSprite);
                 }
                 else if (y < height - 2)
                     {
                     tileSprite = TileAtlas.orange.tileSprite;
+                    tileSprite = GenerateArtefacts(x, y, tileSprite, TileAtlas.orange.tileSprite);
                 }
                 else
                 {
@@ -163,6 +174,25 @@ public class TerrainGenerator : MonoBehaviour
         }
     }
 
+    public Sprite GenerateArtefacts(int x, int y, Sprite tileSprite, Sprite layer)
+    {
+        if (coinSpread.GetPixel(x, y).r > 0.5f)
+        {
+            tileSprite = TileAtlas.cointreasure.tileSprite;
+            isArtefact = true;
+        }
+        else if (goldSpread.GetPixel(x, y).r > 0.5f)
+        {
+            tileSprite = TileAtlas.goldtreasure.tileSprite;
+            isArtefact = true;
+        }
+        else
+        {
+            tileSprite = layer;
+            isArtefact = false;
+        }
+        return tileSprite;
+    }
     public void GenerateNoiseTexture( float frequency, float limit, Texture2D noiseTexture)
     {
         //noiseTexture = new Texture2D(worldSize, worldSize);
@@ -223,6 +253,14 @@ public class TerrainGenerator : MonoBehaviour
 
         worldTiles.Add(newTile.transform.position - Vector3.one * 0.5f);
         worldTileObjects.Add(newTile);
+        if (isArtefact)
+        {
+            Color TileColor = newTile.GetComponent<SpriteRenderer>().material.color;
+            TileColor.a = 0f;
+            newTile.GetComponent<SpriteRenderer>().material.color = TileColor;
+            worldArtefacts.Add(newTile);
+        }
+        Debug.Log(worldArtefacts.Count);
     }
 
 }
